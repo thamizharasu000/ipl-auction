@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waiting Room | IPL Auction</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="brand">
+      <h1>Waiting <span>Room</span></h1>
+      <p id="subtitleText">Connecting...</p>
+    </div>
+
+    <div class="card wide">
+      <div class="room-code-box">
+        <div class="hint-msg">ROOM CODE</div>
+        <div class="code" id="roomCodeDisplay">------</div>
+      </div>
+
+      <div class="wr-grid">
+        <div class="wr-stat">
+          <div class="label">Budget Per Team</div>
+          <div class="value" id="budgetValue">-</div>
+        </div>
+        <div class="wr-stat">
+          <div class="label">Auction Timer</div>
+          <div class="value" id="timerValue">-</div>
+        </div>
+        <div class="wr-stat">
+          <div class="label">Max Players / Team</div>
+          <div class="value" id="maxPlayersValue">-</div>
+        </div>
+        <div class="wr-stat">
+          <div class="label">Max Overseas Players</div>
+          <div class="value" id="maxOverseasValue">-</div>
+        </div>
+      </div>
+
+      <h2>Joined Teams</h2>
+      <div class="progress-text" id="progressText">0 / 10 Teams Joined</div>
+      <div class="teams-list" id="teamsList"></div>
+
+      <div class="error-msg" id="waitingError"></div>
+
+      <button class="btn btn-primary btn-block" id="startAuctionBtn" style="display:none;">Start Auction</button>
+      <p class="hint-msg" id="hostHint" style="display:none; text-align:center; margin-top:8px;"></p>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/waiting.js"></script>
+</body>
+</html>

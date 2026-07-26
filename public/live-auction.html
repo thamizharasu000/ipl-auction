@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Auction | IPL Auction</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="auction-body">
+  <div class="auction-layout">
+
+    <!-- ===================== MAIN AUCTION PANEL ===================== -->
+    <div class="auction-main">
+      <div class="auction-topbar">
+        <div class="room-pill">Room <span id="roomCodeTag">------</span></div>
+        <div class="progress-pill" id="progressPill">Player - / -</div>
+      </div>
+
+      <div class="auction-card" id="auctionCard">
+        <div class="auction-status-banner" id="statusBanner" style="display:none;"></div>
+
+        <div class="player-role-tag" id="playerRole">-</div>
+        <h1 class="player-name" id="playerName">Waiting for auction to begin...</h1>
+        <div class="player-country" id="playerCountry">-</div>
+
+        <div class="price-grid">
+          <div class="price-box">
+            <div class="label">Base Price</div>
+            <div class="value" id="basePriceValue">-</div>
+          </div>
+          <div class="price-box highlight">
+            <div class="label">Current Bid</div>
+            <div class="value" id="currentBidValue">-</div>
+          </div>
+        </div>
+
+        <div class="bidder-row">
+          <div class="label">Highest Bidder</div>
+          <div class="value" id="highestBidderValue">No bids yet</div>
+        </div>
+
+        <div class="timer-ring-wrap">
+          <div class="timer-ring" id="timerRing">
+            <span id="timerValue">-</span>
+          </div>
+        </div>
+
+        <div class="bid-buttons" id="bidButtons">
+          <button class="bid-btn" data-amount="10">+₹10 Lakh</button>
+          <button class="bid-btn" data-amount="50">+₹50 Lakh</button>
+          <button class="bid-btn" data-amount="100">+₹1 Crore</button>
+          <button class="bid-btn" data-amount="200">+₹2 Crore</button>
+        </div>
+
+        <div class="error-msg" id="bidError"></div>
+      </div>
+
+      <div class="card host-controls" id="hostControls" style="display:none;">
+        <h2>Host Controls</h2>
+        <div class="host-btn-grid">
+          <button class="btn btn-secondary" id="pauseBtn">Pause Auction</button>
+          <button class="btn btn-secondary" id="resumeBtn">Resume Auction</button>
+          <button class="btn btn-outline" id="skipBtn">Skip Player</button>
+          <button class="btn btn-outline" id="unsoldBtn">Mark Unsold</button>
+          <button class="btn" id="endBtn" style="background:var(--danger); color:#fff;">End Auction</button>
+        </div>
+      </div>
+
+      <!-- ===================== LIVE AUCTION STATUS ===================== -->
+      <div class="card status-card">
+        <h2>Live Auction Status</h2>
+        <div class="status-tabs">
+          <button class="status-tab active" data-tab="available">Available <span id="countAvailable">0</span></button>
+          <button class="status-tab" data-tab="sold">Sold <span id="countSold">0</span></button>
+          <button class="status-tab" data-tab="unsold">Unsold <span id="countUnsold">0</span></button>
+        </div>
+        <div class="status-panel" id="panelAvailable"></div>
+        <div class="status-panel" id="panelSold" style="display:none;"></div>
+        <div class="status-panel" id="panelUnsold" style="display:none;"></div>
+      </div>
+
+      <!-- ===================== LIVE STATISTICS ===================== -->
+      <div class="card stats-card">
+        <h2>Live Statistics</h2>
+        <div class="stats-table-wrap">
+          <table class="stats-table" id="statsTable">
+            <thead>
+              <tr>
+                <th>Team</th>
+                <th>Budget</th>
+                <th>Players</th>
+                <th>BAT</th>
+                <th>BOWL</th>
+                <th>AR</th>
+                <th>WK</th>
+                <th>Overseas</th>
+              </tr>
+            </thead>
+            <tbody id="statsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== LIVE TEAM PANEL ===================== -->
+    <div class="auction-sidebar">
+      <h2>Live Team Panel</h2>
+      <div class="sidebar-teams" id="sidebarTeams"></div>
+    </div>
+
+  </div>
+
+  <!-- ===================== VIEW TEAM MODAL ===================== -->
+  <div class="modal-overlay" id="teamModalOverlay" style="display:none;">
+    <div class="modal-box">
+      <button class="modal-close" id="teamModalClose">&times;</button>
+      <div id="teamModalContent"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/live-auction.js"></script>
+</body>
+</html>

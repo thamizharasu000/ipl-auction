@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Auction | IPL Auction</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <a href="/index.html" class="back-link">&larr; Back to Home</a>
+    <div class="brand">
+      <h1>Join <span>Auction</span></h1>
+    </div>
+
+    <!-- STEP 1: Room Code -->
+    <div class="card" id="step1Card">
+      <h2>Enter Room Code</h2>
+      <div class="form-group">
+        <label for="roomCodeInput">Room Code or Invite Link</label>
+        <input type="text" id="roomCodeInput" placeholder="e.g. AB12CD" maxlength="120" autocomplete="off" />
+      </div>
+      <div class="error-msg" id="step1Error"></div>
+      <button class="btn btn-primary btn-block" id="step1Btn">Join Room</button>
+    </div>
+
+    <!-- STEP 2: Password (shown only if required) -->
+    <div class="card" id="step2Card" style="display:none;">
+      <h2>Room Password</h2>
+      <div class="form-group">
+        <label for="passwordInput">This room is password protected</label>
+        <input type="password" id="passwordInput" placeholder="Enter password" autocomplete="off" />
+      </div>
+      <div class="error-msg" id="step2Error"></div>
+      <button class="btn btn-primary btn-block" id="step2Btn">Continue</button>
+    </div>
+
+    <!-- STEP 3: Name + Team -->
+    <div class="card wide" id="step3Card" style="display:none;">
+      <h2>Your Details</h2>
+      <div class="form-group">
+        <label for="nameInput">Your Name</label>
+        <input type="text" id="nameInput" placeholder="Enter your name" maxlength="30" />
+      </div>
+      <div class="form-group">
+        <label>Select IPL Team</label>
+        <div class="option-grid" id="teamGrid"></div>
+        <div class="hint-msg">Greyed out teams are already taken</div>
+      </div>
+      <div class="error-msg" id="step3Error"></div>
+      <button class="btn btn-primary btn-block" id="step3Btn">Join Room</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/join.js"></script>
+</body>
+</html>

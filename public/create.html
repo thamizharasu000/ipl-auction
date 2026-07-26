@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Auction | IPL Auction</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <a href="/index.html" class="back-link">&larr; Back to Home</a>
+    <div class="brand">
+      <h1>Create <span>Auction</span></h1>
+    </div>
+
+    <div class="card wide">
+      <form id="createForm">
+        <div class="form-group">
+          <label for="hostName">Host Name</label>
+          <input type="text" id="hostName" placeholder="Enter your name" required maxlength="30" />
+        </div>
+
+        <div class="form-group">
+          <label>Select IPL Team</label>
+          <div class="option-grid" id="teamGrid"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password (Optional)</label>
+          <input type="password" id="password" placeholder="Leave blank for no password" maxlength="30" />
+        </div>
+
+        <div class="form-group">
+          <label>Budget Per Team</label>
+          <div class="option-grid" id="budgetGrid"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Auction Timer</label>
+          <div class="option-grid" id="timerGrid"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Maximum Players Per Team</label>
+          <div class="option-grid" id="maxPlayersGrid"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Maximum Overseas Players</label>
+          <div class="option-grid" id="maxOverseasGrid"></div>
+        </div>
+
+        <div class="error-msg" id="errorMsg"></div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="createBtn">Create Room</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/create.js"></script>
+</body>
+</html>

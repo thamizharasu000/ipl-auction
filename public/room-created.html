@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Room Created | IPL Auction</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="brand">
+      <h1>Room <span>Created!</span></h1>
+      <p>Share the code or link with other franchise owners</p>
+    </div>
+
+    <div class="card">
+      <div class="room-code-box">
+        <div class="hint-msg">ROOM CODE</div>
+        <div class="code" id="roomCodeDisplay">------</div>
+      </div>
+
+      <div class="invite-link-box">
+        <input type="text" id="inviteLinkInput" readonly />
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-outline" id="copyBtn">📋 Copy</button>
+        <button class="btn btn-outline" id="shareBtn">📤 Share</button>
+      </div>
+
+      <button class="btn btn-primary btn-block" id="enterBtn">Enter Waiting Room →</button>
+    </div>
+  </div>
+
+  <script src="/js/room-created.js"></script>
+</body>
+</html>
